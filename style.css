@@ -1,0 +1,78 @@
+/* Hi i am a comment */
+
+
+.box {
+    width: 15vw;
+    height: 15vw;
+    background-color:orange;
+    border-radius:1vw;
+    padding:2vw;
+    transition-property: all;
+    transition-duration: 0.5s;
+    box-shadow: 0 10px 20px 0 #949494;
+    
+}
+
+.box:hover {
+    background-color:black;
+    color: white;
+    transition-property: all;
+    transition-duration: 1s;
+    box-shadow: 0 50px 20px 0 #333;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******************** Hallo **********************/
+
+* { /**** really all objects and childs */
+    box-sizing: border-box; /* this stops adding the padding to an object */
+}
+
+body {
+    color: white;  /**** font color **/
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5vw; /**** distance outside the body ****/
+}
+h1,h2,h3,h4,h5,h6 {margin: 0;} /**** combining different DOM objects */
+
+
+
+.redwine {
+    background-color: red;
+}
+
+.whitewine {
+    background-color: gray;
+}
+
+.whitewine article h3 {
+    color: blue;
+}
+
+.whitewine h3 {
+    color: orange;
+}
+
+
