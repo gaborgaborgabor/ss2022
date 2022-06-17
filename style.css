@@ -25,26 +25,15 @@ h1,h2,h3,h4,h5,h6 {
     height: 15vw;
     border-radius:0.25vw;
     box-shadow: 0 10px 20px 0 #949494;
-    color: white;
-
-    background-image: url(images/20220603_image.jpg);
-    background-size: cover; /* cover the object with the image */
-    background-position: center center; /* center the background */
-
-    transition-property: all;
-    transition-duration: 0.2s;
- }
-
-.box>div {
-    background-color: black;
-    width: 15vw;
-    height: 15vw; 
-    transition-property: all;
-    transition-duration: 0.2s;
-}
-.box>div:hover {
-    opacity:0;
+    background-color: orange;
     transition-property: all;
     transition-duration: 0.5s;
-}
+ }
 
+ .box:hover {
+    transform: translate3d(0,-1vh,0) perspective(200px) rotateY(15deg) rotatex(15deg);
+    /* translate on x,y,z, perspective is distance to eyes, rotate on y axis */
+    box-shadow: 0 20px 20px 0 #949494;
+    transition-property: all;
+    transition-duration: 1s;
+ }
