@@ -1,7 +1,8 @@
 /***************** General Rules *****************/
 
 
-* { /**** really all objects and childs */
+
+* { /**** effects all objects and childs */
     box-sizing: border-box; /* this stops adding the padding to an object */
 }
 
@@ -14,19 +15,12 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0;
     line-height: 40%;
     font-weight: 700;
-    font-size: 50rem;
-    color:#ff0000;
-
-
-
-
+    font-size: 1rem;
+    color: #fff;
 } /**** combining different DOM objects */
 
 
 /***************** EO General Rules *****************/
-
-
-
 
 .box {
     width: 15vw;
@@ -37,6 +31,11 @@ h1,h2,h3,h4,h5,h6 {
     box-shadow: 0 10px 20px 0 #949494;
     
 }
+.box>h1 { /* only direct childs of class box **/
+    color: red;
+}
+
+
 
 
 
