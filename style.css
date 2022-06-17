@@ -13,10 +13,8 @@ body {
 
 h1,h2,h3,h4,h5,h6 {
     margin: 0;
-    line-height: 40%;
     font-weight: 700;
     font-size: 1rem;
-    color: #fff;
 } /**** combining different DOM objects */
 
 
@@ -25,39 +23,28 @@ h1,h2,h3,h4,h5,h6 {
 .box {
     width: 15vw;
     height: 15vw;
-    background-color:black;
-    border-radius:1vw;
-    padding:2vw;
+    border-radius:0.25vw;
     box-shadow: 0 10px 20px 0 #949494;
-    
+    color: white;
+
+    background-image: url(images/20220603_image.jpg);
+    background-size: cover; /* cover the object with the image */
+    background-position: center center; /* center the background */
+
+    transition-property: all;
+    transition-duration: 0.2s;
+ }
+
+.box>div {
+    background-color: black;
+    width: 15vw;
+    height: 15vw; 
+    transition-property: all;
+    transition-duration: 0.2s;
 }
-.box>h1 { /* only direct childs of class box **/
-    color: red;
+.box>div:hover {
+    opacity:0;
+    transition-property: all;
+    transition-duration: 0.5s;
 }
-
-
-
-
-
-
-
-/******************** Hallo **********************/
-
-
-.redwine {
-    background-color: red;
-}
-
-.whitewine {
-    background-color: gray;
-}
-
-.whitewine article h3 {
-    color: blue;
-}
-
-.whitewine h3 {
-    color: orange;
-}
-
 
