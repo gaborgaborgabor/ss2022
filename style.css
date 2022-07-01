@@ -17,6 +17,29 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 1rem;
 } /**** combining different DOM objects */
 
+/***************** Style Main navigation *****************/
+
+
+.mainnavigation ul {
+    list-style:none;
+    margin: 0;
+    padding: 0;
+}
+
+.mainnavigation li {
+    display: inline-block;
+}
+
+.mainnavigation>ul li>ul  { /* sub nav level */
+    display: none;
+    padding-left: 2vw;
+   
+}
+.mainnavigation>ul li:hover>ul {
+    display: block;
+}
+
+
 
 /***************** EO General Rules *****************/
 
