@@ -2,6 +2,68 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+
+
+    <script>
+
+
+      AFRAME.registerComponent('play-on-click', {
+          init: function () {
+              console.log('init video player');
+              this.onClick = this.onClickEvent.bind(this);
+              this.el.addEventListener('click', this.onClickEvent);
+          },
+          onClickEvent: function (evt) {
+                  var videoEl = this.getAttribute('material').src;
+                      if (videoEl.paused) {
+                          console.log('play');
+
+                        videoEl.play(); 
+                          this.querySelector('#play').setAttribute('visible','false');
+                          this.querySelector('#pause').setAttribute('visible','true');
+                      } else { 
+                          videoEl.pause(); 
+                          console.log('stop');
+
+                            this.querySelector('#play').setAttribute('visible','true');
+                            this.querySelector('#pause').setAttribute('visible','false');
+                      } 
+          }
+      });
+      
+
+      /***** Sound Objekte anschalten */
+
+      AFRAME.registerComponent('sound-on-click', {
+          init: function () {
+              console.log('init audio player');
+              this.onClick = this.onClickEvent.bind(this);
+              this.el.addEventListener('click', this.onClickEvent);
+          },
+          onClickEvent: function (evt) {
+                  //let audio = this.querySelector('a-sound');
+                  //audio.components.sound.playSound();
+                 let audio = this.querySelector('audio');
+                 console.log(audio);
+
+                  if (audio.paused) {
+                      audio.play();
+                  } else {
+                    audio.pause();
+                  }
+
+          }
+      });
+
+
+
+
+
+
+    </script>
+
+
+
   </head>
   <body>
 
@@ -13,6 +75,7 @@
 
     <a-assets><!-- here all the texture and video and audios are store....because of preload-->
         <img id="stone" src="media/stone.jpg">
+        <video id="video1" preload="auto" src="media/video.mp4" autoplay="false" crossOrigin="anonymous"></video>
     </a-assets>   
 
 
@@ -25,35 +88,46 @@
         <a-box material="src: #stone; repeat: 20 20" position="0 0 -50" rotation="0 0 0" color="#ccc" width="20" depth="100" height="-0.1"></a-box>
         
         <a-entity rotation="0 32 0" position="-3 2 -5">
-            <a-box material="src: #stone; side: double; repeat: 2 2" position="-3 0 0" color="#fff" width="5" depth="0.2" height="4"></a-box>
-            <a-box position="3 0 0" color="#fff" width="5" depth="0.2" height="4"></a-box>
+            <a-box id="wall1" material="src: #stone; side: double; repeat: 2 2" position="-3 0 0" color="#fff" width="5" depth="0.2" height="4"></a-box>
+            <a-box id="wall2" position="3 0 0" color="#fff" width="5" depth="0.2" height="4"></a-box>
         </a-entity>
 
 
+        <a-entity id="player3" material="shader: flat; src: #video1" geometry="primitive: plane; width: 2.4; height: 1.4;" position="4 2 -10" rotation="0 0 0" visible="true" play-on-click autoplay="false">
+          <a-image id="play" src="media/play.png" width="2.4" height="1.4" visible="true"></a-image>
+          <a-image id="pause" src="media/pause.png" width="2.4" height="1.4" visible="false"></a-image>
+        </a-entity>
 
   
+        <a-entity sound-on-click position="10 2 0">
+          <a-sphere color="red" radius="0.2" ></a-sphere> 
+          <!-- <a-sound src="src: url(media/sound.mp3)" autoplay="false" ></a-sound> -->
+          <audio id="ambient_music" src="media/sound.mp3"></audio>
+        </a-entity>  
+
+
+      
+
 
 
 
 
     </a-scene>
 
+    <script>
+
+        
+
+      //document.querySelector('#wall2').addEventListener('click', function (evt) {
+      //console.log('This 2D element was clicked!');
+      //let element = document.querySelector('#wall1');
+      //element.setAttribute('material', 'color: red');
+      //element.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: true; dur: 10000');
+      //element.setAttribute('animation', 'property: position; to: -3 0 -3; dur: 1000');
+      //});
 
 
+  </script>
 
-
-
-
-
-
-    <!--
-    <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene>
-    -->
   </body>
 </html>
